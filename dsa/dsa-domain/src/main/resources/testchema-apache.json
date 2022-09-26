@@ -1,0 +1,150 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "addresses": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "addressLines": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "index": {
+                                    "type": "integer"
+                                },
+                                "text": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["index", "text"]
+                        }
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "emailAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "address": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["address"]
+                        }
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "phoneNumbers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "number": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["number"]
+                        }
+                    },
+                    "zip": {
+                        "type": "string"
+                    }
+                },
+                "required": ["addressLines", "city", "country", "label", "name", "zip"]
+            }
+        },
+        "bank": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "object",
+                    "properties": {
+                        "accountNumber": {
+                            "type": "string"
+                        },
+                        "clearingNumber": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["accountNumber", "clearingNumber"]
+                },
+                "bankGiro": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "bic": {
+                    "type": "string"
+                },
+                "iban": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "plusGiro": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "swish": {
+                    "type": "string"
+                }
+            },
+            "required": ["account", "bic", "iban", "name"]
+        },
+        "corporateIdentityNumber": {
+            "type": "string"
+        },
+        "currency": {
+            "type": "string"
+        },
+        "domicile": {
+            "type": "string"
+        },
+        "homepage": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "organisationType": {
+            "type": "string",
+            "enum": ["LIMITED_COMPANY", "SOLE_PROPRIETORSHIP", "OTHER"]
+        },
+        "vatNumber": {
+            "type": "string"
+        },
+        "vatPeriod": {
+            "type": "string",
+            "enum": ["MONTH_VAT", "QUARTER_VAT", "YEAR_VAT"]
+        },
+        "vatRegistered": {
+            "type": "boolean"
+        }
+    },
+    "required": ["addresses", "corporateIdentityNumber", "name"]
+}

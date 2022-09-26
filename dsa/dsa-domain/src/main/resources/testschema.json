@@ -1,0 +1,120 @@
+{
+    "type": "object",
+    "id": "urn:jsonschema:dsa:domain:Organisation",
+    "properties": {
+        "vatPeriod": {
+            "type": "string",
+            "enum": ["MONTH_VAT", "QUARTER_VAT", "YEAR_VAT"]
+        },
+        "addresses": {
+            "type": "array",
+            "required": true,
+            "items": {
+                "type": "object",
+                "id": "urn:jsonschema:dsa:domain:Address",
+                "properties": {
+                    "zip": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "emailAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "id": "urn:jsonschema:dsa:domain:EmailAddress",
+                            "properties": {
+                                "address": {
+                                    "type": "string",
+                                    "required": true
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "label": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "addressLines": {
+                        "type": "array",
+                        "required": true,
+                        "items": {
+                            "type": "object",
+                            "id": "urn:jsonschema:dsa:domain:Address:Line",
+                            "properties": {
+                                "index": {
+                                    "type": "integer",
+                                    "required": true
+                                },
+                                "text": {
+                                    "type": "string",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "phoneNumbers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "id": "urn:jsonschema:dsa:domain:PhoneNumber",
+                            "properties": {
+                                "number": {
+                                    "type": "string",
+                                    "required": true
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "corporateIdentityNumber": {
+            "type": "string",
+            "required": true
+        },
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "vatRegistered": {
+            "type": "boolean"
+        },
+        "domicile": {
+            "type": "string"
+        },
+        "currency": {
+            "type": "string"
+        },
+        "organisationType": {
+            "type": "string",
+            "enum": ["LIMITED_COMPANY", "SOLE_PROPRIETORSHIP", "OTHER"]
+        },
+        "vatNumber": {
+            "type": "string"
+        },
+        "homepage": {
+            "type": "string"
+        }
+    }
+}
