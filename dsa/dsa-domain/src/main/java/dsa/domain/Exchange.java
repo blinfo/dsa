@@ -10,26 +10,25 @@ import java.math.BigDecimal;
  */
 public class Exchange implements Entity {
 
-        @JsonProperty(required = true)
-        @JsonFormat(pattern = "[A-Z]{3}")
-        private String currency;
-        @JsonProperty(required = true)
-        private BigDecimal rate;
+    @JsonProperty(required = true)
+    @JsonFormat(pattern = "[A-Z]{3}")
+    private String currency;
+    @JsonProperty(required = true)
+    private BigDecimal rate;
 
-        public String getCurrency() {
-            return currency;
-        }
+    public String getCurrency() {
+        return currency;
+    }
 
-        public void setCurrency(String currency) {
-            this.currency = currency;
-        }
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-        public BigDecimal getRate() {
-            return rate;
-        }
+    public BigDecimal getRate() {
+        return rate;
+    }
 
-        public void setRate(BigDecimal rate) {
-            this.rate = rate;
-        }
-
+    public void setRate(BigDecimal rate) {
+        this.rate = rate;
+    }
 }

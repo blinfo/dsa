@@ -1,5 +1,6 @@
 package dsa.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -102,6 +103,7 @@ public class Voucher implements Entity {
     public static class Transaction implements Entity {
 
         @JsonProperty(required = true)
+        @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
         private String accountNumber;
         @JsonProperty(required = true)
         private BigDecimal balance;
@@ -112,7 +114,7 @@ public class Voucher implements Entity {
         private Double quantity;
         private String registeredBy;
         private ModificationType modificationType;
-        private List<DimensionReference> dimensions;
+        private List<DimensionItemReference> dimensions;
 
         public String getAccountNumber() {
             return accountNumber;
@@ -170,11 +172,11 @@ public class Voucher implements Entity {
             this.modificationType = modificationType;
         }
 
-        public List<DimensionReference> getDimensions() {
+        public List<DimensionItemReference> getDimensions() {
             return dimensions;
         }
 
-        public void setDimensions(List<DimensionReference> dimensions) {
+        public void setDimensions(List<DimensionItemReference> dimensions) {
             this.dimensions = dimensions;
         }
 

@@ -29,6 +29,8 @@ public class CustomerInvoice implements Entity {
     private LocalDate dueDate;
     @JsonProperty(required = true)
     private BigDecimal amount;
+    @JsonFormat(pattern = "\\d{3,}")
+    private String ocr;
     @JsonProperty(required = true)
     private Vat vat;
     private Exchange exchange;
@@ -38,7 +40,7 @@ public class CustomerInvoice implements Entity {
     private List<Row> rows;
     private VoucherReference voucher;
     private String externalInvoiceNumber;
-    private List<DimensionReference> dimensions;
+    private List<DimensionItemReference> dimensions;
     private List<Long> projectIds;
     private List<UUID> documentIds;
     private List<Payment> payments;
@@ -78,6 +80,14 @@ public class CustomerInvoice implements Entity {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getOcr() {
+        return ocr;
+    }
+
+    public void setOcr(String ocr) {
+        this.ocr = ocr;
     }
 
     public Vat getVat() {
@@ -144,11 +154,11 @@ public class CustomerInvoice implements Entity {
         this.externalInvoiceNumber = externalInvoiceNumber;
     }
 
-    public List<DimensionReference> getDimensions() {
+    public List<DimensionItemReference> getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(List<DimensionReference> dimensions) {
+    public void setDimensions(List<DimensionItemReference> dimensions) {
         this.dimensions = dimensions;
     }
 
@@ -226,9 +236,10 @@ public class CustomerInvoice implements Entity {
         private BigDecimal netAmount;
         private String unit;
         private Double quantity;
+        @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
         private String account;
         private BigDecimal vatAmount;
-        private List<DimensionReference> dimensions;
+        private List<DimensionItemReference> dimensions;
         private List<Long> projectIds;
 
         public Integer getIndex() {
@@ -295,11 +306,11 @@ public class CustomerInvoice implements Entity {
             this.vatAmount = vatAmount;
         }
 
-        public List<DimensionReference> getDimensions() {
+        public List<DimensionItemReference> getDimensions() {
             return dimensions;
         }
 
-        public void setDimensions(List<DimensionReference> dimensions) {
+        public void setDimensions(List<DimensionItemReference> dimensions) {
             this.dimensions = dimensions;
         }
 
@@ -321,6 +332,7 @@ public class CustomerInvoice implements Entity {
         @JsonProperty(required = true)
         private BigDecimal amount;
         private Exchange exchange;
+        @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
         private String account;
         private VoucherReference voucher;
         private String registeredBy;

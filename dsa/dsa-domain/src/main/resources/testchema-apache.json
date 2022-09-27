@@ -41,7 +41,7 @@
             },
             "required": ["addressLines", "city", "country", "label", "name", "zip"]
         },
-        "DimensionReference": {
+        "DimensionItemReference": {
             "type": "object",
             "properties": {
                 "id": {
@@ -229,10 +229,12 @@
                             }
                         },
                         "bic": {
-                            "type": "string"
+                            "type": "string",
+                            "pattern": "[A-Z]{6}([\\dA-Z]{2}|[\\dA-Z]{5})"
                         },
                         "iban": {
-                            "type": "string"
+                            "type": "string",
+                            "pattern": "[A-Z]{2}[\\dA-Z]{13,32}"
                         },
                         "name": {
                             "type": "string"
@@ -357,7 +359,7 @@
                             "dimensions": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/$defs/DimensionReference"
+                                    "$ref": "#/$defs/DimensionItemReference"
                                 }
                             },
                             "documentIds": {
@@ -384,13 +386,18 @@
                             "number": {
                                 "type": "string"
                             },
+                            "ocr": {
+                                "type": "string",
+                                "pattern": "\\d{3,}"
+                            },
                             "payments": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
                                         "account": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
                                         },
                                         "amount": {
                                             "type": "number"
@@ -428,7 +435,8 @@
                                     "type": "object",
                                     "properties": {
                                         "account": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
                                         },
                                         "article": {
                                             "type": "string"
@@ -436,7 +444,7 @@
                                         "dimensions": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/$defs/DimensionReference"
+                                                "$ref": "#/$defs/DimensionItemReference"
                                             }
                                         },
                                         "index": {
@@ -629,10 +637,12 @@
                                                     "type": "string"
                                                 },
                                                 "number": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "pattern": "[\\da-zA-Z]{4,6}"
                                                 },
                                                 "numberPreviousYear": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "pattern": "[\\da-zA-Z]{4,6}"
                                                 },
                                                 "openingBalance": {
                                                     "type": "number"
@@ -747,7 +757,8 @@
                                                             "type": "object",
                                                             "properties": {
                                                                 "accountNumber": {
-                                                                    "type": "string"
+                                                                    "type": "string",
+                                                                    "pattern": "[\\da-zA-Z]{4,6}"
                                                                 },
                                                                 "balance": {
                                                                     "type": "number"
@@ -755,7 +766,7 @@
                                                                 "dimensions": {
                                                                     "type": "array",
                                                                     "items": {
-                                                                        "$ref": "#/$defs/DimensionReference"
+                                                                        "$ref": "#/$defs/DimensionItemReference"
                                                                     }
                                                                 },
                                                                 "modificationType": {
@@ -939,7 +950,7 @@
                             "dimensions": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/$defs/DimensionReference"
+                                    "$ref": "#/$defs/DimensionItemReference"
                                 }
                             },
                             "documentIds": {
@@ -974,7 +985,8 @@
                                 "format": "int64"
                             },
                             "ocr": {
-                                "type": "string"
+                                "type": "string",
+                                "pattern": "\\d{3,}"
                             },
                             "payments": {
                                 "type": "array",
@@ -982,7 +994,8 @@
                                     "type": "object",
                                     "properties": {
                                         "account": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
                                         },
                                         "amount": {
                                             "type": "number"
@@ -1021,7 +1034,8 @@
                                     "type": "object",
                                     "properties": {
                                         "account": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
                                         },
                                         "article": {
                                             "type": "string"
@@ -1029,7 +1043,7 @@
                                         "dimensions": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/$defs/DimensionReference"
+                                                "$ref": "#/$defs/DimensionItemReference"
                                             }
                                         },
                                         "index": {

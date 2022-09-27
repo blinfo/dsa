@@ -1,5 +1,6 @@
 package dsa.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
@@ -14,8 +15,10 @@ public class Bank implements Entity {
     @JsonProperty(required = true)
     private Account account;
     @JsonProperty(required = true)
+    @JsonFormat(pattern = "[A-Z]{6}([\\dA-Z]{2}|[\\dA-Z]{5})")
     private String bic;
     @JsonProperty(required = true)
+    @JsonFormat(pattern = "[A-Z]{2}[\\dA-Z]{13,32}")
     private String iban;
     private List<String> bankGiro;
     private List<String> plusGiro;

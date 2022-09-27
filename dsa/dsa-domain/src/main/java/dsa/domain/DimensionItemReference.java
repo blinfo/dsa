@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author hakan
  */
-public class DimensionReference implements Entity {
+public class DimensionItemReference implements Entity {
 
     @JsonProperty(required = true)
     private Integer type;

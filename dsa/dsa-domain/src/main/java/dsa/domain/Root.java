@@ -28,6 +28,5 @@ public class Root implements Entity {
     public void setOrganisation(Organisation organisation) {
         this.organisation = organisation;
     }
-    
-    
+
 }

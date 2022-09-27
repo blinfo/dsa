@@ -40,5 +40,4 @@ public class VoucherReference implements Entity {
     public void setFinancialYearId(Long financialYearId) {
         this.financialYearId = financialYearId;
     }
-    
 }

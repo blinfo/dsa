@@ -69,5 +69,4 @@ public class ExchangeRate implements Entity {
     public void setSell(BigDecimal sell) {
         this.sell = sell;
     }
-
 }

@@ -1,5 +1,6 @@
 package dsa.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -18,6 +19,7 @@ public class SupplierInvoice implements Entity {
 
     private Long number;
     private String invoiceNumber;
+    @JsonFormat(pattern = "\\d{3,}")
     private String ocr;
     @JsonProperty(required = true)
     private BigDecimal amount;
@@ -41,7 +43,7 @@ public class SupplierInvoice implements Entity {
     private List<Payment> payments;
     private List<String> notes;
     private Exchange exchange;
-    private List<DimensionReference> dimensions;
+    private List<DimensionItemReference> dimensions;
     private List<Long> projectIds;
 
     public Long getNumber() {
@@ -156,11 +158,11 @@ public class SupplierInvoice implements Entity {
         this.exchange = exchange;
     }
 
-    public List<DimensionReference> getDimensions() {
+    public List<DimensionItemReference> getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(List<DimensionReference> dimensions) {
+    public void setDimensions(List<DimensionItemReference> dimensions) {
         this.dimensions = dimensions;
     }
 
@@ -231,8 +233,9 @@ public class SupplierInvoice implements Entity {
         private BigDecimal netAmount;
         private String unit;
         private Double quantity;
+        @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
         private String account;
-        private List<DimensionReference> dimensions;
+        private List<DimensionItemReference> dimensions;
         private List<Long> projectIds;
 
         public Integer getIndex() {
@@ -291,11 +294,11 @@ public class SupplierInvoice implements Entity {
             this.account = account;
         }
 
-        public List<DimensionReference> getDimensions() {
+        public List<DimensionItemReference> getDimensions() {
             return dimensions;
         }
 
-        public void setDimensions(List<DimensionReference> dimensions) {
+        public void setDimensions(List<DimensionItemReference> dimensions) {
             this.dimensions = dimensions;
         }
 
@@ -317,6 +320,7 @@ public class SupplierInvoice implements Entity {
         @JsonProperty(required = true)
         private BigDecimal amount;
         private Exchange exchange;
+        @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
         private String account;
         private VoucherReference voucher;
         private String registeredBy;
