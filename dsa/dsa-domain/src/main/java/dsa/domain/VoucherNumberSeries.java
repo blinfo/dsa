@@ -1,5 +1,6 @@
 package dsa.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class VoucherNumberSeries {
 
     @JsonProperty(required = true)
+    @JsonFormat(pattern = "[\\dA-Z#]{1}")
     private String number;
     private String label;
     @JsonProperty(required = true)

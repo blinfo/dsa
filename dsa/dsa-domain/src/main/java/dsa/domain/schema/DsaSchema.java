@@ -24,6 +24,7 @@ public class DsaSchema {
         configBuilder.forFields()
                 .withStringPatternResolver(field -> Optional.ofNullable(field.getAnnotationConsideringFieldAndGetter(JsonFormat.class))
                 .map(JsonFormat::pattern).orElse(null));
+        configBuilder.with(Option.ADDITIONAL_FIXED_TYPES, Option.EXTRA_OPEN_API_FORMAT_VALUES);
         return configBuilder.build();
     }
 }

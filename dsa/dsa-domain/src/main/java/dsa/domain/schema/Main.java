@@ -10,7 +10,7 @@ import dsa.domain.*;
 public class Main {
 
     public static void main(String[] args) {
-        JsonNode jsonSchema = DsaSchema.generateSchema(Organisation.class);
+        JsonNode jsonSchema = DsaSchema.generateSchema(Root.class);
         System.out.println(jsonSchema.toPrettyString());
     }
 }

@@ -8,6 +8,7 @@ import dsa.domain.io.LocalDateSerializer;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 /**
  *
@@ -31,7 +32,7 @@ public class Voucher implements Entity {
     private String registeredBy;
     @JsonProperty(required = true)
     private List<Transaction> transactions;
-    private List<Long> documentIds;
+    private List<UUID> documentIds;
     private CorrectedVoucher correctedVoucher;
 
     public Long getNumber() {
@@ -82,11 +83,11 @@ public class Voucher implements Entity {
         this.transactions = transactions;
     }
 
-    public List<Long> getDocumentIds() {
+    public List<UUID> getDocumentIds() {
         return documentIds;
     }
 
-    public void setDocumentIds(List<Long> documentIds) {
+    public void setDocumentIds(List<UUID> documentIds) {
         this.documentIds = documentIds;
     }
 
@@ -111,7 +112,7 @@ public class Voucher implements Entity {
         private Double quantity;
         private String registeredBy;
         private ModificationType modificationType;
-        private List<Dimension> dimensions;
+        private List<DimensionReference> dimensions;
 
         public String getAccountNumber() {
             return accountNumber;
@@ -169,11 +170,11 @@ public class Voucher implements Entity {
             this.modificationType = modificationType;
         }
 
-        public List<Dimension> getDimensions() {
+        public List<DimensionReference> getDimensions() {
             return dimensions;
         }
 
-        public void setDimensions(List<Dimension> dimensions) {
+        public void setDimensions(List<DimensionReference> dimensions) {
             this.dimensions = dimensions;
         }
 

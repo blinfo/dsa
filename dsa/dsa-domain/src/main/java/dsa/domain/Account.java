@@ -21,8 +21,11 @@ public class Account {
     private BigDecimal closingBalance;
     private BigDecimal result;
     private Type type;
-    @JsonFormat(pattern = "d{1,2}")
+    @JsonFormat(pattern = "\\d{1,2}")
     private String vatCode;
+    private String unit;
+    @JsonProperty(required = true)
+    private Boolean active;
     
     public enum Type {
         ASSET, COST, LIABILITY, REVENUE, MISC

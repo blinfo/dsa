@@ -25,6 +25,15 @@ public class Organisation implements Entity {
     private List<Address> addresses;
     private String homepage;
     private Bank bank;
+    private List<FinancialYear> financialYears;
+    private List<Dimension> dimensions;
+    private List<Project> projects;
+    private List<ExchangeRate> exchangeRates;
+    private List<CustomerInvoice> customerInvoices;
+    private List<SupplierInvoice> supplierInvoices;
+    private List<ActivityLogItem> activityLog;
+    private List<Document> documents;
+    private List<Integration> integrations;
 
     public String getName() {
         return name;
@@ -112,6 +121,78 @@ public class Organisation implements Entity {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public List<FinancialYear> getFinancialYears() {
+        return financialYears;
+    }
+
+    public void setFinancialYears(List<FinancialYear> financialYears) {
+        this.financialYears = financialYears;
+    }
+
+    public List<Dimension> getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(List<Dimension> dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public List<ExchangeRate> getExchangeRates() {
+        return exchangeRates;
+    }
+
+    public void setExchangeRates(List<ExchangeRate> exchangeRates) {
+        this.exchangeRates = exchangeRates;
+    }
+
+    public List<CustomerInvoice> getCustomerInvoices() {
+        return customerInvoices;
+    }
+
+    public void setCustomerInvoices(List<CustomerInvoice> customerInvoices) {
+        this.customerInvoices = customerInvoices;
+    }
+
+    public List<SupplierInvoice> getSupplierInvoices() {
+        return supplierInvoices;
+    }
+
+    public void setSupplierInvoices(List<SupplierInvoice> supplierInvoices) {
+        this.supplierInvoices = supplierInvoices;
+    }
+
+    public List<ActivityLogItem> getActivityLog() {
+        return activityLog;
+    }
+
+    public void setActivityLog(List<ActivityLogItem> activityLog) {
+        this.activityLog = activityLog;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
+    }
+
+    public List<Integration> getIntegrations() {
+        return integrations;
+    }
+
+    public void setIntegrations(List<Integration> integrations) {
+        this.integrations = integrations;
     }
 
     public enum Type {
