@@ -1,13 +1,10 @@
 package dsa.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import dsa.domain.io.OffsetDateTimeDeserializer;
-import dsa.domain.io.OffsetDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.*;
+import dsa.domain.io.*;
 import java.time.OffsetDateTime;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  *
