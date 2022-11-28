@@ -1,43 +1,18 @@
 package dsa.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  *
  * @author hakan
  */
-public class VoucherReference implements Entity {
+public record VoucherReference(
+        @JsonProperty(required = true)
+        @JsonFormat(pattern = "[\\dA-Z#]{1}")
+        String series,
+        @JsonProperty(required = true)
+        Long number,
+        @JsonProperty(required = true)
+        Long financialYearId) implements Entity {
 
-    @JsonProperty(required = true)
-    @JsonFormat(pattern = "[\\dA-Z#]{1}")
-    private String series;
-    @JsonProperty(required = true)
-    private Long number;
-    @JsonProperty(required = true)
-    private Long financialYearId;
-
-    public String getSeries() {
-        return series;
-    }
-
-    public void setSeries(String series) {
-        this.series = series;
-    }
-
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
-    }
-
-    public Long getFinancialYearId() {
-        return financialYearId;
-    }
-
-    public void setFinancialYearId(Long financialYearId) {
-        this.financialYearId = financialYearId;
-    }
 }

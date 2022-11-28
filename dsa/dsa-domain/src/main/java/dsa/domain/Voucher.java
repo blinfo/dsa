@@ -1,222 +1,63 @@
 package dsa.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import dsa.domain.io.LocalDateDeserializer;
-import dsa.domain.io.LocalDateSerializer;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.*;
+import dsa.domain.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  *
  * @author hakan
  */
-public class Voucher implements Entity {
-
-    @JsonProperty(required = true)
-    private Long number;
-    @JsonProperty(required = true)
-    private String text;
-    @JsonProperty(required = true)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate voucherDate;
-    @JsonProperty(required = true)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate registrationDate;
-    @JsonProperty(required = true)
-    private String registeredBy;
-    @JsonProperty(required = true)
-    private List<Transaction> transactions;
-    private List<UUID> documentIds;
-    private CorrectedVoucher correctedVoucher;
-
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public LocalDate getVoucherDate() {
-        return voucherDate;
-    }
-
-    public void setVoucherDate(LocalDate voucherDate) {
-        this.voucherDate = voucherDate;
-    }
-
-    public LocalDate getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(LocalDate registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public String getRegisteredBy() {
-        return registeredBy;
-    }
-
-    public void setRegisteredBy(String registeredBy) {
-        this.registeredBy = registeredBy;
-    }
-
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
-
-    public List<UUID> getDocumentIds() {
-        return documentIds;
-    }
-
-    public void setDocumentIds(List<UUID> documentIds) {
-        this.documentIds = documentIds;
-    }
-
-    public CorrectedVoucher getCorrectedVoucher() {
-        return correctedVoucher;
-    }
-
-    public void setCorrectedVoucher(CorrectedVoucher correctedVoucher) {
-        this.correctedVoucher = correctedVoucher;
-    }
-
-    public static class Transaction implements Entity {
-
+public record Voucher(
         @JsonProperty(required = true)
-        @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
-        private String accountNumber;
+        Long number,
         @JsonProperty(required = true)
-        private BigDecimal balance;
-        private String text;
+        String text,
+        @JsonProperty(required = true)
         @JsonSerialize(using = LocalDateSerializer.class)
         @JsonDeserialize(using = LocalDateDeserializer.class)
-        private LocalDate modifiedDate;
-        private Double quantity;
-        private String registeredBy;
-        private ModificationType modificationType;
-        private List<DimensionItemReference> dimensions;
+        LocalDate voucherDate,
+        @JsonProperty(required = true)
+        @JsonSerialize(using = LocalDateSerializer.class)
+        @JsonDeserialize(using = LocalDateDeserializer.class)
+        LocalDate registrationDate,
+        @JsonProperty(required = true)
+        String registeredBy,
+        @JsonProperty(required = true)
+        List<Transaction> transactions,
+        List<UUID> documentIds,
+        CorrectedVoucher correctedVoucher) implements Entity {
 
-        public String getAccountNumber() {
-            return accountNumber;
-        }
-
-        public void setAccountNumber(String accountNumber) {
-            this.accountNumber = accountNumber;
-        }
-
-        public BigDecimal getBalance() {
-            return balance;
-        }
-
-        public void setBalance(BigDecimal balance) {
-            this.balance = balance;
-        }
-
-        public String getText() {
-            return text;
-        }
-
-        public void setText(String text) {
-            this.text = text;
-        }
-
-        public LocalDate getModifiedDate() {
-            return modifiedDate;
-        }
-
-        public void setModifiedDate(LocalDate modifiedDate) {
-            this.modifiedDate = modifiedDate;
-        }
-
-        public Double getQuantity() {
-            return quantity;
-        }
-
-        public void setQuantity(Double quantity) {
-            this.quantity = quantity;
-        }
-
-        public String getRegisteredBy() {
-            return registeredBy;
-        }
-
-        public void setRegisteredBy(String registeredBy) {
-            this.registeredBy = registeredBy;
-        }
-
-        public ModificationType getModificationType() {
-            return modificationType;
-        }
-
-        public void setModificationType(ModificationType modificationType) {
-            this.modificationType = modificationType;
-        }
-
-        public List<DimensionItemReference> getDimensions() {
-            return dimensions;
-        }
-
-        public void setDimensions(List<DimensionItemReference> dimensions) {
-            this.dimensions = dimensions;
-        }
+    public static record Transaction(
+            @JsonProperty(required = true)
+            @JsonFormat(pattern = "[\\da-zA-Z]{4,6}")
+            String accountNumber,
+            @JsonProperty(required = true)
+            BigDecimal balance,
+            String text,
+            @JsonSerialize(using = LocalDateSerializer.class)
+            @JsonDeserialize(using = LocalDateDeserializer.class)
+            LocalDate modifiedDate,
+            Double quantity,
+            String registeredBy,
+            ModificationType modificationType,
+            List<DimensionItemReference> dimensions) implements Entity {
 
         public enum ModificationType {
-            ADDED, CANCELED;
+            ADDED, CANCELED,
         }
     }
 
-    public static class CorrectedVoucher implements Entity {
-
-        @JsonProperty(required = true)
-        private String series;
-        @JsonProperty(required = true)
-        private Long number;
-        @JsonProperty(required = true)
-        private Long financialYearId;
-
-        public String getSeries() {
-            return series;
-        }
-
-        public void setSeries(String series) {
-            this.series = series;
-        }
-
-        public Long getNumber() {
-            return number;
-        }
-
-        public void setNumber(Long number) {
-            this.number = number;
-        }
-
-        public Long getFinancialYearId() {
-            return financialYearId;
-        }
-
-        public void setFinancialYearId(Long financialYearId) {
-            this.financialYearId = financialYearId;
-        }
+    public static record CorrectedVoucher(
+            @JsonProperty(required = true)
+            String series,
+            @JsonProperty(required = true)
+            Long number,
+            @JsonProperty(required = true)
+            Long financialYearId) implements Entity {
 
     }
 }

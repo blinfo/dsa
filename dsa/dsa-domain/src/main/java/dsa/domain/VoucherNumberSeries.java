@@ -1,43 +1,18 @@
 package dsa.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import java.util.List;
 
 /**
  *
  * @author hakan
  */
-public class VoucherNumberSeries {
+public record VoucherNumberSeries(
+        @JsonProperty(required = true)
+        @JsonFormat(pattern = "[\\dA-Z#]{1}")
+        String number,
+        String label,
+        @JsonProperty(required = true)
+        List<Voucher> vouchers) {
 
-    @JsonProperty(required = true)
-    @JsonFormat(pattern = "[\\dA-Z#]{1}")
-    private String number;
-    private String label;
-    @JsonProperty(required = true)
-    private List<Voucher> vouchers;
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public List<Voucher> getVouchers() {
-        return vouchers;
-    }
-
-    public void setVouchers(List<Voucher> vouchers) {
-        this.vouchers = vouchers;
-    }
 }

@@ -6,25 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author hakan
  */
-public class EmailAddress implements Entity {
+public record EmailAddress(
+        @JsonProperty(required = true)
+        String address,
+        String name) implements Entity {
 
-    @JsonProperty(required = true)
-    private String address;
-    private String name;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

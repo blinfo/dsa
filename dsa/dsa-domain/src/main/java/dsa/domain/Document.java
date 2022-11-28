@@ -13,94 +13,22 @@ import java.util.UUID;
  *
  * @author hakan
  */
-public class Document implements Entity {
+public record Document(
+        @JsonProperty(required = true)
+        UUID id,
+        @JsonProperty(required = true)
+        String originalName,
+        @JsonProperty(required = true)
+        String path,
+        @JsonSerialize(using = OffsetDateTimeSerializer.class)
+        @JsonDeserialize(using = OffsetDateTimeDeserializer.class)
+        OffsetDateTime lastModified,
+        String lastModifiedBy,
+        @JsonProperty(required = true)
+        String mediaType,
+        @JsonProperty(required = true)
+        String signature,
+        Long size,
+        List<String> notes) implements Entity {
 
-    @JsonProperty(required = true)
-    private UUID id;
-    @JsonProperty(required = true)
-    private String originalName;
-    @JsonProperty(required = true)
-    private String path;
-    @JsonSerialize(using = OffsetDateTimeSerializer.class)
-    @JsonDeserialize(using = OffsetDateTimeDeserializer.class)
-    private OffsetDateTime lastModified;
-    private String lastModifiedBy;
-    @JsonProperty(required = true)
-    private String mediaType;
-    @JsonProperty(required = true)
-    private String signature;
-    private Long size;
-    private List<String> notes;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getOriginalName() {
-        return originalName;
-    }
-
-    public void setOriginalName(String originalName) {
-        this.originalName = originalName;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public OffsetDateTime getLastModified() {
-        return lastModified;
-    }
-
-    public void setLastModified(OffsetDateTime lastModified) {
-        this.lastModified = lastModified;
-    }
-
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public String getMediaType() {
-        return mediaType;
-    }
-
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
-
-    public Long getSize() {
-        return size;
-    }
-
-    public void setSize(Long size) {
-        this.size = size;
-    }
-
-    public List<String> getNotes() {
-        return notes;
-    }
-
-    public void setNotes(List<String> notes) {
-        this.notes = notes;
-    }
 }

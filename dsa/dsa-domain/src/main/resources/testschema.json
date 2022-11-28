@@ -287,7 +287,7 @@
                                                     "type": "string",
                                                     "pattern": "[A-Z]{2}"
                                                 },
-                                                "eInvoiceid": {
+                                                "eInvoiceId": {
                                                     "type": "object",
                                                     "properties": {
                                                         "id": {
@@ -483,6 +483,10 @@
                             },
                             "shipping": {
                                 "type": "number"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": ["INVOICE", "CREDIT", "CASH"]
                             },
                             "vat": {
                                 "type": "object",

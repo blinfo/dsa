@@ -6,27 +6,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author hakan
  */
-public class DimensionItemReference implements Entity {
-
-    @JsonProperty(required = true)
-    private Integer type;
-    @JsonProperty(required = true)
-    private String id;
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+public record DimensionItemReference(
+        @JsonProperty(required = true)
+        Integer type,
+        @JsonProperty(required = true)
+        String id) implements Entity {
 
 }

@@ -11,18 +11,19 @@ import org.junit.jupiter.api.Test;
  * @author hakan
  */
 public class GeneratedTest {
+
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     @Test
     public void test_deserialize() {
         try {
             Generated gen = MAPPER.readValue(getTestData(), Generated.class);
-            assertEquals("Håkan Lidén", gen.getBy());
-            assertEquals("2022-09-05T11:47:44.855221183+02:00", gen.getTimestamp().toString());
+            assertEquals("Håkan Lidén", gen.by());
+            assertEquals("2022-09-05T11:47:44.855221183+02:00", gen.timestamp().toString());
         } catch (JsonProcessingException ex) {
             fail("Could not deserialize", ex);
         }
-        
+
     }
 
     private String getTestData() {
