@@ -28,6 +28,6 @@ public record Account(
         Boolean active) {
 
     public enum Type {
-        ASSET, COST, LIABILITY, REVENUE, MISC
+        ASSET, COST, EQUITY, LIABILITY, REVENUE, MISC
     }
 }
