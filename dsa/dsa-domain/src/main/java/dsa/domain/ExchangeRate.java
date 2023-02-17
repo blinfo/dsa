@@ -12,8 +12,7 @@ import java.time.LocalDate;
  */
 public record ExchangeRate(
         @JsonProperty(required = true)
-        @JsonFormat(pattern = "[A-Z]{3}")
-        String currency,
+        Currency currency,
         @JsonProperty(required = true)
         @JsonSerialize(using = LocalDateSerializer.class)
         @JsonDeserialize(using = LocalDateDeserializer.class)

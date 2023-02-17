@@ -9,8 +9,7 @@ import java.math.BigDecimal;
  */
 public record Exchange(
         @JsonProperty(required = true)
-        @JsonFormat(pattern = "[A-Z]{3}")
-        String currency,
+        Currency currency,
         @JsonProperty(required = true)
         BigDecimal rate) implements Entity {
 

@@ -19,8 +19,7 @@ public record Address(
         @JsonProperty(required = true)
         String city,
         @JsonProperty(required = true)
-        @JsonFormat(pattern = "[A-Z]{2}")
-        String country,
+        Country country,
         List<PhoneNumber> phoneNumbers,
         List<EmailAddress> emailAddresses) implements Entity {
 

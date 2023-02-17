@@ -13,8 +13,7 @@ public record Organisation(
         @JsonProperty(required = true)
         String corporateIdentityNumber,
         Type organisationType,
-        @JsonFormat(pattern = "[A-Z]{3}")
-        String currency,
+        Currency currency,
         String vatNumber,
         VatPeriod vatPeriod,
         Boolean vatRegistered,
