@@ -1,7 +1,8 @@
 package dsa.domain;
 
 import com.fasterxml.jackson.annotation.*;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  *
@@ -33,10 +34,14 @@ public record Organisation(
         List<Integration> integrations) implements Entity {
 
     public enum Type {
-        LIMITED_COMPANY, SOLE_PROPRIETORSHIP, OTHER
+        LIMITED_COMPANY, SOLE_PROPRIETORSHIP, PARTNERSHIP, ECONOMIC_ASSOCIATION, NON_PROFIT_ASSOCIATION, OTHER;
+
+        public static Optional<Type> find(String text) {
+            return Stream.of(values()).filter(v -> v.name().equalsIgnoreCase(text)).findFirst();
+        }
     }
 
     public enum VatPeriod {
-        MONTH_VAT, QUARTER_VAT, YEAR_VAT
+        MONTH_VAT, QUARTER_VAT, YEAR_VAT, VAT_LESS;
     }
 }

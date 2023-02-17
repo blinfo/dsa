@@ -1,5 +1,8 @@
 package dsa.domain;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 /**
  *
  * @author hl
@@ -254,4 +257,9 @@ public enum Country {
     ZA,
     ZM,
     ZW;
+    public static final Country DEFAULT = SE;
+
+    public static Optional<Country> find(String text) {
+        return Stream.of(values()).filter(v -> v.name().equalsIgnoreCase(text)).findFirst();
+    }
 }

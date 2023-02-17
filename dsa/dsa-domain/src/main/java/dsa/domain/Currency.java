@@ -1,5 +1,8 @@
 package dsa.domain;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 /**
  *
  * @author hl
@@ -158,4 +161,9 @@ public enum Currency {
     ZAR,
     ZMW,
     ZWL;
+    public static final Currency DEFAULT = SEK;
+
+    public static Optional<Currency> find(String text) {
+        return Stream.of(values()).filter(v -> v.name().equalsIgnoreCase(text)).findFirst();
+    }
 }
