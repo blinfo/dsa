@@ -123,22 +123,12 @@ public record CustomerInvoice(
 
     }
 
-    public static record EInvoiceId(
-            EInvoiceType type,
-            String id) implements Entity {
-
-    }
-
     public enum AddressType {
         INVOICE, DELIVERY
     }
 
     public enum InvoiceType {
         INVOICE, CREDIT, CASH // Fylla på med fler?
-    }
-
-    public enum EInvoiceType {
-        PEPPOL, GLN // Fylla på med fler?
     }
 
     public enum Type {

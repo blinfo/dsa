@@ -665,7 +665,7 @@
                                                 },
                                                 "type": {
                                                     "type": "string",
-                                                    "enum": ["ASSET", "COST", "LIABILITY", "REVENUE", "MISC"]
+                                                    "enum": ["ASSET", "COST", "EQUITY", "LIABILITY", "REVENUE", "MISC"]
                                                 },
                                                 "unit": {
                                                     "type": "string"
@@ -891,7 +891,7 @@
                 },
                 "organisationType": {
                     "type": "string",
-                    "enum": ["LIMITED_COMPANY", "SOLE_PROPRIETORSHIP", "OTHER"]
+                    "enum": ["LIMITED_COMPANY", "SOLE_PROPRIETORSHIP", "PARTNERSHIP", "ECONOMIC_ASSOCIATION", "NON_PROFIT_ASSOCIATION", "OTHER"]
                 },
                 "projects": {
                     "type": "array",
@@ -1117,7 +1117,7 @@
                 },
                 "vatPeriod": {
                     "type": "string",
-                    "enum": ["MONTH_VAT", "QUARTER_VAT", "YEAR_VAT"]
+                    "enum": ["MONTH_VAT", "QUARTER_VAT", "YEAR_VAT", "VAT_LESS"]
                 },
                 "vatRegistered": {
                     "type": "boolean"
