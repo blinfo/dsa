@@ -1,0 +1,571 @@
+{
+	"dsa": {
+		"version": "0.0.1",
+		"program": {
+			"name": "BLA-API",
+			"version": "1.206.0",
+			"systemDocumentation": [
+				"1"
+			]
+		},
+		"generated": {
+			"timestamp": "2022-09-05T11:47:44.855221183",
+			"by": "Håkan Lidén"
+		}
+	},
+	"organisation": {
+		"name": "Övningsföretaget AB",
+		"?organisationType": "LIMITED_COMPANY",
+		"?currency": "SEK",
+		"?vatNumber": "SE556293998201",
+		"?vatPeriod": "MONTH_VAT",
+		"?vatRegistered": true,
+		"corporateIdentityNumber": "5566556655",
+		"?domicile": "Hudiksvall",
+		"addresses": [
+			{
+				"label": "Huvudkontor",
+				"name": "Rosalina Sparvdotter",
+				"addressLines": [
+					{
+						"text": "Storgatan 1",
+						"index": 0
+					},
+					{
+						"text": "Storgatan 1",
+						"index": 1
+					}
+				],
+				"zip": "12345",
+				"city": "Storstad",
+				"country": "SE",
+				"?phoneNumbers": [
+					{
+						"number": "012-345678",
+						"?type": "PHONE",
+						"?name": "Ekonomiavdelningen"
+					},
+					{
+						"number": "0650-541401",
+						"?type": "FAX",
+						"?name": "Ekonomiavdelningen"
+					}
+				],
+				"?emailAddresses": [
+					{
+						"address": "info@ovningsbolaget.se",
+						"?name": "Ekonomiavdelningen"
+					}
+				]
+			}
+		],
+		"?homepage": "https://www.ovningsbolaget.se",
+		"?bank": [
+			{
+				"name": "Norrlandsbanken",
+				"account": {
+					"accountNumber": "43795054-8",
+					"clearingNumber": "8129-9"
+				},
+				"?bankGiro": [
+					"1234-12"
+				],
+				"?plusGiro": [
+					"4567-89"
+				],
+				"bic": "SWEDNBSS",
+				"iban": "SE4680000812990437950548",
+				"?swish": "90 01 645"
+			}
+		],
+		"?financialYears": [
+			{
+				"id": 1,
+				"startDate": "2015-01-01",
+				"endDate": "2015-12-31",
+				"?preliminaryTax": 7900.0,
+				"bookkeepingMethod": "CASHBASED | ACCRUAL",
+				"accountingPlan": {
+					"label": "eubas97",
+					"accounts": [
+						{
+							"number": "1510",
+							"label": "Kundfordringar",
+							"?numberPreviousYear": "1511",
+							"?sruCodes": [
+								"7251"
+							],
+							"?openingBalance": -185228.0,
+							"?closingBalance": -280747.0,
+							"?type": "ASSET | COST | LIABILITY | REVENUE | MISC",
+							"vatCode": "00..50",
+							"?unit": "liter",
+							"active": true
+						},
+						{
+							"number": "3001",
+							"label": "Försäljning inom Sverige 25% Moms",
+							"sruCodes": [
+								"7411"
+							],
+							"?result": 90000.0,
+							"?type": "REVENUE",
+							"vatCode": "05",
+							"active": true
+						}
+					]
+				},
+				"voucherNumberSeries": [
+					{
+						"serie": "A",
+						"?label": "Huvudbok",
+						"vouchers": [
+							{
+								"number": 1,
+								"text": "Faktura från Telia",
+								"voucherDate": "2015-01-02",
+								"registrationDate": "2015-03-10",
+								"registeredBy": "Emma Andersson | Zettle",
+								"transactions": [
+									{
+										"accountNumber": "2440",
+										"balance": -1000.0,
+										"?modifiedDate": "2015-01-02",
+										"?quantity": 1.0,
+										"?registeredBy": "Emma Andersson",
+										"?modificationType": "ADDED | CANCELED"
+									},
+									{
+										"accountNumber": "6212",
+										"?text": "Mobiltelefoni - telia",
+										"balance": 800.0,
+										"?modifiedDate": "2015-01-02",
+										"?registeredBy": "Emma Andersson",
+										"?dimensions": [
+											{
+												"type": 1,
+												"id": "KS1"
+											}
+										]
+									},
+									{
+										"accountNumber": "2641",
+										"balance": 200.0,
+										"?modifiedDate": "2015-01-02",
+										"?registeredBy": "Emma Andersson"
+									}
+								],
+								"?documentIds": [
+									105
+								],
+								"?correctedVoucher": {
+									"serie": "A",
+									"number": 97,
+									"financialYearId": 1
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"?dimensions": [
+			{
+				"id": 1,
+				"name": "Kostnadsställe",
+				"items": [
+					{
+						"id": "KS1",
+						"name": "Mitt kostnadsställe",
+						"?notes": ["anteckningar"]
+					}
+				]
+			},
+			{
+				"id": 2,
+				"name": "Kostnadsbärare",
+				"items": [
+					{
+						"id": "KB1",
+						"name": "Min kostnadsbärare",
+						"?notes": ["anteckningar"]
+					}
+				]
+			}
+		],	
+		"?projects": [
+			{
+				"id": "1000",
+				"name": "Projekt 1",
+				"?customerNumbers": ["1234"],
+				"?supplierNumbers": ["345", "567"],
+				"?startDate": "2017-11-01",
+				"?endDate": "2017-12-31",
+				"?closedDate": "2017-11-30",
+				"?documentIds": [],
+				"?notes": ["anteckningar"]
+			}
+		],
+		"?exchangeRates": [
+			{
+				"currency": "EUR",
+				"date": "2022-05-19",
+				"unit": 1,
+				"buy": 11.3259,
+				"sell": 9.9005
+			},
+			{
+				"currency": "NOK",
+				"date": "2022-05-19",
+				"unit": 100,
+				"buy": 107.14,
+				"sell": 93.02
+			}
+		],
+		"?customerInvoices": [
+			{
+				"number": "1",
+				"invoiceDate": "2017-11-03",
+				"dueDate": "2017-12-04",
+				"amount": 200.0,
+				"vat": [
+					{
+						"rate": "25%",
+						"amount": 50.0
+					}
+				],
+				"?exhange": {
+					"currency": "USD",
+					"rate": 10.0
+				},
+				"?serviceFee": 80.0,
+				"?shipping": 100.0,
+				"?registeredBy": "Emma Andersson",
+				"?rows": [
+					{
+						"index": 0,
+						"?article": "K01",
+						"?text": "Konsulttjänster",
+						"?netAmount": 100.0,
+						"?unit": "h",
+						"?quantity": 5.0,
+						"?account": "3041",
+						"?vatAmount": 25.0,
+						"?dimensions": [
+							{
+								"type": 1,
+								"id": 22
+							}
+						],
+						"?projectIds": [
+							29
+						]
+					},
+					{
+						"index": 1,
+						"?netAmount": 100.0,
+						"?unit": "h",
+						"?quantity": 5.0,
+						"?account": "3041",
+						"?vatAmount": 25.0
+					}
+				],
+				"invoiceType": "INVOICE | CREDIT | CASH | ??",
+				"?voucher": {
+					"series": "F",
+					"number": 1,
+					"financialYearId": 1
+				},
+				"?externalInvoiceNumber": "ext 1",
+				"?dimensions": [
+					{
+						"type": 1,
+						"id": 22
+					}
+				],
+				"?projectIds": [
+					29
+				],
+				"?documentIds": [
+					105
+				],
+				"?payments": [
+					{
+						"paymentDate": "2017-11-03",
+						"amount": 1059.0,
+						"?exhange": {
+							"currency": "USD",
+							"rate": 10.0
+						},
+						"?account": 1910,
+						"?voucher": {
+							"series": "F",
+							"number": 1,
+							"financialYearId": 1
+						},
+						"?registeredBy": "Zettle"
+					}
+				],
+				"?deliveryDate": "2017-01-01",
+				"customer": {
+					"?number": "1",
+					"name": "Hanna Olsson",
+					"addresses": [
+						{
+							"?type": "DELIVERY | INVOICE",
+							"addressLines": [
+								{
+									"text": "Kalvstigen 2",
+									"label": "Box"
+								}
+							],
+							"zip": "456 78",
+							"city": "Mellanstaden",
+							"country": "SE",
+							"?eInvoiceId": {
+								"type": "PEPPOL | GLN | ?",
+								"id": "0007:5512345678"
+							},
+							"?emailAddresses": [
+								"hanna.olsson@info.se"
+							]
+						}
+					],
+					"references": [
+						"Stig Bengtsson"
+					],
+					"paymentTerms": "30",
+					"?corporateIdentityNumber": "5512345678",
+					"?vatRegistrationNumber": "SE551234567801"
+				}
+			}
+		],
+		"?supplierInvoices": [
+			{
+				"?number": 1,
+				"?invoiceNumber": "264852",
+				"?ocr": "12341234123412341234",
+				"supplier": {
+					"?number": "5",
+					"name": "Proteinbutiken",
+					"?reference": "",
+					"?address": {
+						"addressLines": [
+							{
+								"text": "Kalvstigen 2",
+								"label": "Box"
+							}
+						],
+						"zip": "456 78",
+						"city": "Mellanstaden",
+						"country": "SE",
+						"?emailAddresses": [
+							"hanna.olsson@info.se"
+						]
+					},
+					"?vatRegistrationNumber": "SE551234567801"
+				},
+				"?vouchers": [{
+					"series": "L",
+					"number": 1,
+					"financialYearId": 1
+				}],
+				"?rows": [
+					{
+						"index": 0,
+						"?article": "S01",
+						"?text": "Sand",
+						"?netAmount": 1000.0,
+						"?unit": "ton",
+						"?quantity": 3.0,
+						"?account": "4101",
+						"?dimensions": [
+							{
+								"type": 1,
+								"id": 22
+							}
+						],
+						"?projectIds": [
+							29
+						]
+					},
+					{
+						"index": 1,
+						"?article": "G01",
+						"?text": "Grus",
+						"?netAmount": 1000.0,
+						"?unit": "ton",
+						"?quantity": 4.0,
+						"?account": "4102",
+						"?dimensions": [
+							{
+								"type": 1,
+								"id": 22
+							}
+						],
+						"?projectIds": [
+							29
+						]
+					},
+					{
+						"index": 2,
+						"?article": "Moms",
+						"?text": "25%",
+						"?netAmount": 1000.0,
+						"?unit": "ton",
+						"?quantity": 4.0,
+						"?account": "4102",
+						"?dimensions": [
+							{
+								"type": 1,
+								"id": 22
+							}
+						],
+						"?projectIds": [
+							29
+						]
+					}
+				],
+				"invoiceDate": "2017-11-03",
+				"dueDate": "2017-12-03",
+				"registrationDate": "2017-12-03",
+				"documentIds": [
+					"107.pdf"
+				],
+				"?payments": [
+					{
+						"paymentDate": "2017-12-03",
+						"amount": 4500.0,
+						"?exhange": {
+							"currency": "SEK",
+							"rate": 1.0
+						},
+						"?account": 1930,
+						"?voucher": {
+							"series": "F",
+							"number": 1,
+							"financialYearId": 1
+						},
+						"?registeredBy": "Emma Andersson"
+					}
+				],
+				"?notes": [
+					"Enligt tidigare överenskommelser byter vi bg för betalningar",
+					"God Jul!"
+				],
+				"amount": 4500.0,
+				"?exhange": {
+					"currency": "SEK",
+					"rate": 1.0
+				},
+				"?dimensions": [
+					{
+						"type": 1,
+						"id": 22
+					}
+				],
+				"?projectIds": [
+					29
+				]
+			}
+		],
+		"activityLog": [
+			{
+				"?index": 1,
+				"timestamp":"2022-09-05T11:47:44.855221183",
+				"activity":["Aktiverade Zettle integration för företaget"],
+				"by":"Emma Andersson",
+				"?object":"Organisation"
+			},
+			{
+				"?index": 2,
+				"timestamp":"2022-09-05T19:47:00.855221183",
+				"activity":["Verifikation registrerad A 17 med bokföringsdatum 2020-01-12"],
+				"by":"Zettle",
+				"?object":"Verifikation"
+			}
+		],
+		"documents": [
+			{
+				"id": "1d22c60e-5b7d-444f-8ec5-07f962320138",
+				"originalName": "Systembeskrivning.pdf",
+				"path": "/files/1d22c60e-5b7d-444f-8ec5-07f962320138.pdf",
+				"?lastModified": "2022-02-08T11:11:14.025",
+				"?lastModifiedBy": "Björn Lundén AB",
+				"mediaType": "application/pdf",
+				"signature": "BBHkyT9yKUzkbASnot/s9+h5MZCouoFEyF6ap8qb1v8AV7NNUDHb5fid2EBxp+qvkUesAU6IzpIg/MYkUF23aI3eyb7cNzFymvPwUuKhX0BmWlQ1qXHjFln2/OKeKkmcI+DgYIjtQFMiTcZWmfw9mvMvgGlCsfHTgfHhP7HrrpUU0bpSJbk13BN1YNjNB3zfVXv30wg9jcIcWIQbUpS0LcSGuJhvfjwxLU2Q/8K05QLH/sLC7mLHAJU7y24MiKJ40fP3xtkMFes30LlF6b9YrignR4OqPbIt82zS/OYVS5ECtxwl0lBMW6YM6MuaYrUq/ygOKBSihMj3p3Hl+b0Bvw==",
+				"?size": 929720,
+				"?notes": ["Systembeskrivning från affärssystemmakaren..."]
+			},
+			{
+				"id": "3d22b60e-5b7d-444f-8ec5-07f962320137",
+				"originalName": "Rapport.pdf",
+				"path": "/files/3d22b60e-5b7d-444f-8ec5-07f962320137.pdf",
+				"?lastModified": "2022-02-08T11:11:14.025",
+				"?lastModifiedBy": "Emma Andersson",
+				"mediaType": "application/pdf",
+				"signature": "REHkyT9yKUzkbASnot/s9+h5MZCouoFEyF6ap8qb1v8AV7NNUDHb5fid2EBxp+qvkUesAU6IzpIg/MYkUF23aI3eyb7cNzFymvPwUuKhX0BmWlQ1qXHjFln2/OKeKkmcI+DgYIjtQFMiTcZWmfw9mvMvgGlCsfHTgfHhP7HrrpUU0bpSJbk13BN1YNjNB3zfVXv30wg9jcIcWIQbUpS0LcSGuJhvfjwxLU2Q/8K05QLH/sLC7mLHAJU7y24MiKJ40fP3xtkMFes30LlF6b9YrignR4OqPbIt82zS/OYVS5ECtxwl0lBMW6YM6MuaYrUq/ygOKBSihMj3p3Hl+b0Bvw==",
+				"?size": 52972,
+				"?notes": ["Den rapport vi gick igenom tillsammans i början av året"]
+			}
+		],
+		"?integrations": [
+			{
+				"name": "Zettle",
+				"?emailAddresses": [
+					{
+						"address": "drift@blinfo.se",
+						"?name": "invoice"
+					},
+					{
+						"address": "support@blinfo.se",
+						"?name": "technical"
+					}
+				],
+				"?homepage": "https://www.blinfo.se/integrationer/izettle",
+				"?technicalDocumentationUri": ["https://www.blinfo.se/integrationer/izettle"],
+				"?documentIds":[],
+				"access": "COMPLETE | READ_ONLY | WRITE_ONLY | READ_WRITE | SCOPED",
+				"?scopes": [
+					{
+						"name": "Article",
+						"create": false,
+						"read": true,
+						"update": false,
+						"delete": false
+					},
+					{
+						"name": " Account",
+						"create": false,
+						"read": true,
+						"update": false,
+						"delete": false
+					},
+					{
+						"name": " Details",
+						"create": false,
+						"read": true,
+						"update": false,
+						"delete": false
+					},
+					{
+						"name": " Journal",
+						"create": true,
+						"read": true,
+						"update": false,
+						"delete": false
+					},
+					{
+						"name": " Financialyear",
+						"create": false,
+						"read": true,
+						"update": false,
+						"delete": false
+					}
+				],
+				"?connected": "2021-02-23",
+				"?notes": ["Denna integration använder ingen bakdörr alls, typ odbc-koplling eller så. Endast scopad behörighet här alltså!"]
+			}
+		]
+	}
+}

@@ -1,0 +1,1130 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "Address": {
+            "type": "object",
+            "properties": {
+                "addressLines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/Line"
+                    }
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "$ref": "#/$defs/Country"
+                },
+                "emailAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/EmailAddress"
+                    }
+                },
+                "label": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phoneNumbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/PhoneNumber"
+                    }
+                },
+                "zip": {
+                    "type": "string"
+                }
+            },
+            "required": ["addressLines", "city", "country", "label", "name", "zip"]
+        },
+        "Country": {
+            "type": "string",
+            "enum": ["AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU", "CV", "CW", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK", "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY", "HK", "HM", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SY", "SZ", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA", "ZM", "ZW"]
+        },
+        "Currency": {
+            "type": "string",
+            "enum": ["AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLF", "CLP", "CNY", "COP", "CRC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "SSP", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "YER", "ZAR", "ZMW", "ZWL"]
+        },
+        "DimensionItemReference": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "required": ["id", "type"]
+        },
+        "EmailAddress": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["address"]
+        },
+        "Exchange": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "$ref": "#/$defs/Currency"
+                },
+                "rate": {
+                    "type": "number"
+                }
+            },
+            "required": ["currency", "rate"]
+        },
+        "Line": {
+            "type": "object",
+            "properties": {
+                "index": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": ["index", "text"]
+        },
+        "PhoneNumber": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "number": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": ["number"]
+        },
+        "VoucherReference": {
+            "type": "object",
+            "properties": {
+                "financialYearId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "series": {
+                    "type": "string",
+                    "pattern": "[\\dA-Z#]{1}"
+                }
+            },
+            "required": ["financialYearId", "number", "series"]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "dsa": {
+            "type": "object",
+            "properties": {
+                "generated": {
+                    "type": "object",
+                    "properties": {
+                        "by": {
+                            "type": "string"
+                        },
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    "required": ["by", "timestamp"]
+                },
+                "program": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "systemDocumentation": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["name", "systemDocumentation", "version"]
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": ["generated", "program", "version"]
+        },
+        "organisation": {
+            "type": "object",
+            "properties": {
+                "activityLog": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "activity": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "by": {
+                                "type": "string"
+                            },
+                            "index": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "object": {
+                                "type": "string"
+                            },
+                            "timestamp": {
+                                "type": "string",
+                                "format": "date-time"
+                            }
+                        },
+                        "required": ["by", "timestamp"]
+                    }
+                },
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/Address"
+                    }
+                },
+                "bank": {
+                    "type": "object",
+                    "properties": {
+                        "account": {
+                            "type": "object",
+                            "properties": {
+                                "accountNumber": {
+                                    "type": "string"
+                                },
+                                "clearingNumber": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["accountNumber", "clearingNumber"]
+                        },
+                        "bankGiro": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "bic": {
+                            "type": "string",
+                            "pattern": "[A-Z]{6}([\\dA-Z]{2}|[\\dA-Z]{5})"
+                        },
+                        "iban": {
+                            "type": "string",
+                            "pattern": "[A-Z]{2}[\\dA-Z]{13,32}"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "plusGiro": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "swish": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["account", "bic", "iban", "name"]
+                },
+                "corporateIdentityNumber": {
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/$defs/Currency"
+                },
+                "customerInvoices": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "amount": {
+                                "type": "number"
+                            },
+                            "customer": {
+                                "type": "object",
+                                "properties": {
+                                    "addresses": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "addressLines": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/$defs/Line"
+                                                    }
+                                                },
+                                                "city": {
+                                                    "type": "string"
+                                                },
+                                                "country": {
+                                                    "$ref": "#/$defs/Country"
+                                                },
+                                                "eInvoiceId": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "enum": ["PEPPOL", "GLN"]
+                                                        }
+                                                    }
+                                                },
+                                                "emailAddresses": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/$defs/EmailAddress"
+                                                    }
+                                                },
+                                                "label": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "phoneNumbers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/$defs/PhoneNumber"
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": ["INVOICE", "DELIVERY"]
+                                                },
+                                                "zip": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": ["addressLines", "city", "country", "label", "name", "zip"]
+                                        }
+                                    },
+                                    "corporateIdentityNumber": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "type": "string"
+                                    },
+                                    "paymentTerms": {
+                                        "type": "string"
+                                    },
+                                    "references": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "vatRegistrationNumber": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["name", "paymentTerms", "references"]
+                            },
+                            "deliveryDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "dimensions": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/DimensionItemReference"
+                                }
+                            },
+                            "documentIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            },
+                            "dueDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "exchange": {
+                                "$ref": "#/$defs/Exchange"
+                            },
+                            "externalInvoiceNumber": {
+                                "type": "string"
+                            },
+                            "invoiceDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "ocr": {
+                                "type": "string",
+                                "pattern": "\\d{3,}"
+                            },
+                            "payments": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "account": {
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
+                                        },
+                                        "amount": {
+                                            "type": "number"
+                                        },
+                                        "exchange": {
+                                            "$ref": "#/$defs/Exchange"
+                                        },
+                                        "paymentDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "registeredBy": {
+                                            "type": "string"
+                                        },
+                                        "voucher": {
+                                            "$ref": "#/$defs/VoucherReference"
+                                        }
+                                    },
+                                    "required": ["amount", "paymentDate"]
+                                }
+                            },
+                            "projectIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            },
+                            "registeredBy": {
+                                "type": "string"
+                            },
+                            "rows": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "account": {
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
+                                        },
+                                        "article": {
+                                            "type": "string"
+                                        },
+                                        "dimensions": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/$defs/DimensionItemReference"
+                                            }
+                                        },
+                                        "index": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "netAmount": {
+                                            "type": "number"
+                                        },
+                                        "projectIds": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer",
+                                                "format": "int64"
+                                            }
+                                        },
+                                        "quantity": {
+                                            "type": "number",
+                                            "format": "double"
+                                        },
+                                        "text": {
+                                            "type": "string"
+                                        },
+                                        "unit": {
+                                            "type": "string"
+                                        },
+                                        "vatAmount": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required": ["index"]
+                                }
+                            },
+                            "serviceFee": {
+                                "type": "number"
+                            },
+                            "shipping": {
+                                "type": "number"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": ["INVOICE", "CREDIT", "CASH"]
+                            },
+                            "vat": {
+                                "type": "object",
+                                "properties": {
+                                    "amount": {
+                                        "type": "number"
+                                    },
+                                    "rate": {
+                                        "type": "string",
+                                        "pattern": "0%|6%|12%|25%|100%"
+                                    }
+                                },
+                                "required": ["amount", "rate"]
+                            },
+                            "voucher": {
+                                "$ref": "#/$defs/VoucherReference"
+                            }
+                        },
+                        "required": ["amount", "customer", "dueDate", "invoiceDate", "number", "vat"]
+                    }
+                },
+                "dimensions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "notes": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": ["id", "name"]
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["id", "items", "name"]
+                    }
+                },
+                "documents": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uuid"
+                            },
+                            "lastModified": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "lastModifiedBy": {
+                                "type": "string"
+                            },
+                            "mediaType": {
+                                "type": "string"
+                            },
+                            "notes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "originalName": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
+                            },
+                            "signature": {
+                                "type": "string"
+                            },
+                            "size": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        },
+                        "required": ["id", "mediaType", "originalName", "path", "signature"]
+                    }
+                },
+                "domicile": {
+                    "type": "string"
+                },
+                "exchangeRates": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "buy": {
+                                "type": "number"
+                            },
+                            "currency": {
+                                "$ref": "#/$defs/Currency"
+                            },
+                            "date": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "sell": {
+                                "type": "number"
+                            },
+                            "unit": {
+                                "type": "integer",
+                                "format": "int32",
+                                "pattern": "1|100"
+                            }
+                        },
+                        "required": ["buy", "currency", "date", "sell", "unit"]
+                    }
+                },
+                "financialYears": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "accountingPlan": {
+                                "type": "object",
+                                "properties": {
+                                    "accounts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "active": {
+                                                    "type": "boolean"
+                                                },
+                                                "closingBalance": {
+                                                    "type": "number"
+                                                },
+                                                "label": {
+                                                    "type": "string"
+                                                },
+                                                "number": {
+                                                    "type": "string",
+                                                    "pattern": "[\\da-zA-Z]{4,6}"
+                                                },
+                                                "numberPreviousYear": {
+                                                    "type": "string",
+                                                    "pattern": "[\\da-zA-Z]{4,6}"
+                                                },
+                                                "openingBalance": {
+                                                    "type": "number"
+                                                },
+                                                "result": {
+                                                    "type": "number"
+                                                },
+                                                "sruCodes": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": ["ASSET", "COST", "EQUITY", "LIABILITY", "REVENUE", "MISC"]
+                                                },
+                                                "unit": {
+                                                    "type": "string"
+                                                },
+                                                "vatCode": {
+                                                    "type": "string",
+                                                    "pattern": "\\d{1,2}"
+                                                }
+                                            },
+                                            "required": ["active", "label", "number"]
+                                        }
+                                    },
+                                    "label": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["accounts", "label"]
+                            },
+                            "bookkeepingMethod": {
+                                "type": "string",
+                                "enum": ["CASHBASED", "ACCRUAL"]
+                            },
+                            "end": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "id": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "preliminaryTax": {
+                                "type": "number"
+                            },
+                            "start": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "voucherNumberSeries": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string"
+                                        },
+                                        "number": {
+                                            "type": "string",
+                                            "pattern": "[\\dA-Z#]{1}"
+                                        },
+                                        "vouchers": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "correctedVoucher": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "financialYearId": {
+                                                                "type": "integer",
+                                                                "format": "int64"
+                                                            },
+                                                            "number": {
+                                                                "type": "integer",
+                                                                "format": "int64"
+                                                            },
+                                                            "series": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": ["financialYearId", "number", "series"]
+                                                    },
+                                                    "documentIds": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "format": "uuid"
+                                                        }
+                                                    },
+                                                    "number": {
+                                                        "type": "integer",
+                                                        "format": "int64"
+                                                    },
+                                                    "registeredBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "registrationDate": {
+                                                        "type": "string",
+                                                        "format": "date"
+                                                    },
+                                                    "text": {
+                                                        "type": "string"
+                                                    },
+                                                    "transactions": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "accountNumber": {
+                                                                    "type": "string",
+                                                                    "pattern": "[\\da-zA-Z]{4,6}"
+                                                                },
+                                                                "balance": {
+                                                                    "type": "number"
+                                                                },
+                                                                "dimensions": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "#/$defs/DimensionItemReference"
+                                                                    }
+                                                                },
+                                                                "modificationType": {
+                                                                    "type": "string",
+                                                                    "enum": ["ADDED", "CANCELED"]
+                                                                },
+                                                                "modifiedDate": {
+                                                                    "type": "string",
+                                                                    "format": "date"
+                                                                },
+                                                                "quantity": {
+                                                                    "type": "number",
+                                                                    "format": "double"
+                                                                },
+                                                                "registeredBy": {
+                                                                    "type": "string"
+                                                                },
+                                                                "text": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": ["accountNumber", "balance"]
+                                                        }
+                                                    },
+                                                    "voucherDate": {
+                                                        "type": "string",
+                                                        "format": "date"
+                                                    }
+                                                },
+                                                "required": ["number", "registeredBy", "registrationDate", "text", "transactions", "voucherDate"]
+                                            }
+                                        }
+                                    },
+                                    "required": ["number", "vouchers"]
+                                }
+                            }
+                        },
+                        "required": ["accountingPlan", "bookkeepingMethod", "end", "id", "start", "voucherNumberSeries"]
+                    }
+                },
+                "homepage": {
+                    "type": "string"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "access": {
+                                "type": "string",
+                                "enum": ["COMPLETE", "READ_ONLY", "WRITE_ONLY", "READ_WRITE", "SCOPED"]
+                            },
+                            "connected": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "documentIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            },
+                            "emailAddresses": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/EmailAddress"
+                                }
+                            },
+                            "homepage": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "notes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "scopes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "create": {
+                                            "type": "boolean"
+                                        },
+                                        "delete": {
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "read": {
+                                            "type": "boolean"
+                                        },
+                                        "update": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": ["create", "delete", "name", "read", "update"]
+                                }
+                            },
+                            "technicalDocumentationUri": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["access", "name"]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "organisationType": {
+                    "type": "string",
+                    "enum": ["LIMITED_COMPANY", "SOLE_PROPRIETORSHIP", "PARTNERSHIP", "ECONOMIC_ASSOCIATION", "NON_PROFIT_ASSOCIATION", "OTHER"]
+                },
+                "projects": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "closedDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "customerNumbers": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "documentIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            },
+                            "endDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "id": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "notes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "startDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "supplierNumbers": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": ["id", "name"]
+                    }
+                },
+                "supplierInvoices": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "amount": {
+                                "type": "number"
+                            },
+                            "dimensions": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/DimensionItemReference"
+                                }
+                            },
+                            "documentIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            },
+                            "dueDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "exchange": {
+                                "$ref": "#/$defs/Exchange"
+                            },
+                            "invoiceDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "invoiceNumber": {
+                                "type": "string"
+                            },
+                            "notes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "number": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "ocr": {
+                                "type": "string",
+                                "pattern": "\\d{3,}"
+                            },
+                            "payments": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "account": {
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
+                                        },
+                                        "amount": {
+                                            "type": "number"
+                                        },
+                                        "exchange": {
+                                            "$ref": "#/$defs/Exchange"
+                                        },
+                                        "paymentDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "registeredBy": {
+                                            "type": "string"
+                                        },
+                                        "voucher": {
+                                            "$ref": "#/$defs/VoucherReference"
+                                        }
+                                    },
+                                    "required": ["amount", "paymentDate"]
+                                }
+                            },
+                            "projectIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            },
+                            "registrationDate": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "rows": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "account": {
+                                            "type": "string",
+                                            "pattern": "[\\da-zA-Z]{4,6}"
+                                        },
+                                        "article": {
+                                            "type": "string"
+                                        },
+                                        "dimensions": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/$defs/DimensionItemReference"
+                                            }
+                                        },
+                                        "index": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "netAmount": {
+                                            "type": "number"
+                                        },
+                                        "projectIds": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer",
+                                                "format": "int64"
+                                            }
+                                        },
+                                        "quantity": {
+                                            "type": "number",
+                                            "format": "double"
+                                        },
+                                        "text": {
+                                            "type": "string"
+                                        },
+                                        "unit": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["index"]
+                                }
+                            },
+                            "supplier": {
+                                "type": "object",
+                                "properties": {
+                                    "address": {
+                                        "$ref": "#/$defs/Address"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "type": "string"
+                                    },
+                                    "reference": {
+                                        "type": "string"
+                                    },
+                                    "vatRegistrationNumber": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["name"]
+                            },
+                            "vouchers": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/VoucherReference"
+                                }
+                            }
+                        },
+                        "required": ["amount", "dueDate", "invoiceDate", "registrationDate", "supplier"]
+                    }
+                },
+                "vatNumber": {
+                    "type": "string"
+                },
+                "vatPeriod": {
+                    "type": "string",
+                    "enum": ["MONTH_VAT", "QUARTER_VAT", "YEAR_VAT", "VAT_LESS"]
+                },
+                "vatRegistered": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["addresses", "corporateIdentityNumber", "name"]
+        }
+    },
+    "required": ["dsa", "organisation"]
+}
