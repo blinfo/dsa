@@ -9,10 +9,7 @@ pipeline {
                 }
             }
             steps {
-                dir("dsa"){
-                    sh "mvn clean install -U"
-                }
-                dir ('dsa/dsa-domain'){
+                dir ('dsa-domain'){
                     sh 'mvn deploy -DskipTests'
                 }
             }
