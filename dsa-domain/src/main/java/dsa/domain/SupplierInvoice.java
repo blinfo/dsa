@@ -41,16 +41,6 @@ public record SupplierInvoice(
         List<DimensionItemReference> dimensions,
         List<Long> projectIds) implements Entity {
 
-    public static record SupplierData(
-            String number,
-            @JsonProperty(required = true)
-            String name,
-            String reference,
-            Address address,
-            String vatRegistrationNumber) implements Entity {
-
-    }
-
     public static record Row(
             @JsonProperty(required = true)
             Integer index,

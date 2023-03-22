@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class DsaSchema {
 
-    private static final List IGNORE = List.of("customers", "suppliers");
+    private static final List IGNORE = List.of("customers", "suppliers", "articles");
 
     public static JsonNode generateSchema(Type type) {
         return new SchemaGenerator(config()).generateSchema(type);
