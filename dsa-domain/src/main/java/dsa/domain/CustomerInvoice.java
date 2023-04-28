@@ -127,10 +127,6 @@ public record CustomerInvoice(
         INVOICE, DELIVERY
     }
 
-    public enum InvoiceType {
-        INVOICE, CREDIT, CASH // Fylla på med fler?
-    }
-
     public enum Type {
         INVOICE, CREDIT, CASH;
     }
